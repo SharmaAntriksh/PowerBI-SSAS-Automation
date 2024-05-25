@@ -10,6 +10,14 @@ $FileCred = Import-Clixml -Path $FileName
 $UserName = $FileCred.UserName
 $UserPass = [System.Net.NetworkCredential]::new("", $FileCred.Password).Password
 
+<#
+   Structure of the Refresh schedule file:
+
+   WorkspaceName	            WorkspaceID       DatasetName    DatasetID         TableName
+   Incremental Refresh Demo	ea3ae30d-4d90-4d	Contoso 500K	9c6bcaee-eca8-4f	Products
+   Incremental Refresh Demo	ea3ae30d-4d90-4d	Contoso 500K	9c6bcaee-eca8-4f	Dates
+#>
+
 Import-CSV "C:\Users\antsharma\OneDrive\Desktop\Power BI Refresh Schedule.csv" | 
    ` Select-Object WorkspaceName, DatasetID, TableName, DatasetName |
    ` ForEach-Object {
