@@ -15,7 +15,7 @@ def get_datasets(workspace_id=None):
     dataset_names = []
     workspace_ids = []
 
-    for workspace_id, workspace_name in all_workspaces:
+    for workspace_id in all_workspaces:
 
         dataset_uri = fr"https://api.powerbi.com/v1.0/myorg/groups/{workspace_id}/datasets"
         response_request = requests.get(dataset_uri, headers=headers)

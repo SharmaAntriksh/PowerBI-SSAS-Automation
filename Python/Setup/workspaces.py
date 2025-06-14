@@ -14,4 +14,5 @@ def get_workspaces():
     workspace_id = [workspace['id'] for workspace in result['value']]
     workspace_name = [workspace['name'] for workspace in result['value']]
 
-    return zip(workspace_id, workspace_name) 
+    # return zip(workspace_id, workspace_name)
+    return workspace_id
